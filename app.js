@@ -10,6 +10,7 @@ const {
 } = require("./meddlewars/common/errorHandler");
 const usersRouter = require("./routers/users/usersRouter");
 const studentsRouter = require("./routers/students/studentsRouter");
+const loginRouter = require("./routers/login/loginRouter");
 const app = express();
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.COOKIE_SECRETE));
 //routing
 app.use("/users", usersRouter);
+app.use("/user", loginRouter);
 app.use("/students", studentsRouter);
 //404 error handel
 app.use(isNotFoundHandler);
